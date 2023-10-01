@@ -172,7 +172,7 @@ function handleAnswer(isCorrect) {
     if (isCorrect) {
         resultGif.src = 'https://media.tenor.com/YkKE5urfBMAAAAAd/mihoyo-genshin.gif'; 
     } else {
-        resultGif.src = 'https://media.tenor.com/SqgdmL7PGtsAAAAC/reactions.gif';
+        resultGif.src = 'https://media.tenor.com/4aANRMq9IiEAAAAC/mihoyo-genshin-impact-genshinimpact-keqing.gif';
     }
 
     resultGif.style.display = 'block';
@@ -183,6 +183,11 @@ function selectAnswer(e) {
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct === 'true';
     handleAnswer(correct);
+    
+    if (!correct) {
+        timeLeft = Math.max(0, timeLeft - 10);
+        timerDisplay.textContent = 'Time: ' + timeLeft;
+    }
 
     if (QuestionIndex < questionbank.length - 1) {
         QuestionIndex++;
