@@ -135,8 +135,63 @@ const questionbank = [
             { text: 'onchange', correct: false},
             { text: 'onmouseover', correct: false},
             { text: 'onmouseclick', correct: false},
-            { text: 'onclick', correct: true,
+            { text: 'onclick', correct: true},
         ]
     },
 
 ];
+
+let QuestionIndex = 0;
+const startButton = document.getElementById('startbutton');
+const questionBox = document.getElementById('question-box');
+const questionText = document.getElementById('question-text');
+const resultGif = document.getElementById('gif');
+const options = Array.from(document.getElementsByClassName('option'));
+
+startButton.addEventListener('click', startQuiz);
+
+function startQuiz() {
+    startButton.style.display = 'none';
+    questionBox.style.display = 'block';
+    setNextQuestion();
+}
+
+function setNextQuestion() {
+    showQuestion(questionbank[QuestionIndex]);
+}
+
+function showQuestion(question) {
+    questionText.innerText = question.question;
+    question.answers.forEach((answer, index) => {
+        options[index].innerText = answer.text;
+        options[index].dataset.correct = answer.correct;
+    });
+}
+
+function handleAnswer(isCorrect) {
+    if (isCorrect) {
+        resultGif.src = 'https://media.tenor.com/YkKE5urfBMAAAAAd/mihoyo-genshin.gif'; 
+    } else {
+        resultGif.src = 'https://media.tenor.com/SqgdmL7PGtsAAAAC/reactions.gif';
+    }
+
+    resultGif.style.display = 'block';
+
+}
+
+function selectAnswer(e) {
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct === 'true';
+    handleAnswer(correct);
+
+    if (QuestionIndex < questionbank.length - 1) {
+        QuestionIndex++;
+        setNextQuestion();
+    } else {
+        questionBox.style.display = 'none';
+    }
+}
+
+options.forEach(button => {
+    button.addEventListener('click', selectAnswer);
+});
