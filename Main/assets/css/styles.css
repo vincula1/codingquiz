@@ -1,0 +1,55 @@
+.home-title {
+    text-align: center;
+    margin-top: 125px;
+}
+
+.home-bio {
+    text-align: center;
+    font-size: 25px;
+}
+
+.home-score {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 10px;
+    font-size: 20px;
+    color: purple;
+}
+
+.timer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+.start-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    user-select: none;
+    transition: background-color 0.3s ease;
+
+}
+
+.start-button:hover {
+    background-color: #218838;
+}
+
+.start-button:active {
+    background-color: #1e7e34;
+}
+
+.center-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
