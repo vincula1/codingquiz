@@ -1,3 +1,7 @@
+body {
+    font-family: 'Gabarito';
+}
+
 .home-title {
     text-align: center;
     margin-top: 125px;
@@ -6,6 +10,7 @@
 .home-bio {
     text-align: center;
     font-size: 25px;
+    margin-top: 5vh;
 }
 
 .home-score {
@@ -13,7 +18,7 @@
     top: 0;
     left: 0;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 30px;
     color: purple;
 }
 
@@ -22,12 +27,12 @@
     top: 0;
     right: 0;
     padding-right: 10px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .start-button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 20px 40px;
     background-color: #28a745;
     color: #ffffff;
     text-align: center;
@@ -37,7 +42,7 @@
     border-radius: 5px;
     user-select: none;
     transition: background-color 0.3s ease;
-
+    margin-top: 10vh;
 }
 
 .start-button:hover {
@@ -69,4 +74,7 @@
 
 .question-text {
     font-size: 50px;
+    padding-bottom: 50px;
+    position: absolute;
+    top: 150px;
 }
