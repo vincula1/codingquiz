@@ -43,6 +43,6 @@ function saveScore(score) {
 
 function showScore(score) {
     const scoreDisplay = document.getElementById('score-display');
-    scoreDisplay.textContent = 'Your Score: ' + score;
+    scoreDisplay.textContent = `All done!\nYour final score is ${score}`;
     scoreDisplay.style.display = 'block'; 
 }

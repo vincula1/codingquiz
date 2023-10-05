@@ -126,3 +126,17 @@ body {
     height: 10vw;
     overflow: hidden;
 }
+
+#score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#score-display {
+    text-align: center;
+    font-size: 30px;
+    position: relative;
+    bottom: 350px;
+}
