@@ -18,8 +18,31 @@ const timerDisplay = document.querySelector('.timer');
 
 function startTimer() {
     timerId = setInterval(() => {
-        if (timeLeft <= 0) clearInterval(timerId);
-        timerDisplay.textContent = 'Time: ' + Math.max(0, timeLeft);
         timeLeft--;
+        if (timeLeft < 0) timeLeft = 0;
+        timerDisplay.textContent = 'Time: ' + timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(timerId);
+            endQuiz();
+        }
     }, 1000);
+}
+
+
+function endQuiz() {
+    clearInterval(timerId);
+    questionBox.style.display = 'none';
+    saveScore(timeLeft);
+    showScore(timeLeft);
+}
+
+function saveScore(score) {
+    localStorage.setItem('quizScore', score);
+}
+
+function showScore(score) {
+    const scoreDisplay = document.getElementById('score-display');
+    scoreDisplay.textContent = 'Your Score: ' + score;
+    scoreDisplay.style.display = 'block'; 
 }

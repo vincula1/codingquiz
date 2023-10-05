@@ -183,9 +183,10 @@ function selectAnswer(e) {
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct === 'true';
     handleAnswer(correct);
-    
+
     if (!correct) {
-        timeLeft = Math.max(0, timeLeft - 10);
+        timeLeft -= 10;
+        if (timeLeft < 0) timeLeft = 0;
         timerDisplay.textContent = 'Time: ' + timeLeft;
     }
 
@@ -193,7 +194,7 @@ function selectAnswer(e) {
         QuestionIndex++;
         setNextQuestion();
     } else {
-        questionBox.style.display = 'none';
+        endQuiz();
     }
 }
 
