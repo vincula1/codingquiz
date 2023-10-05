@@ -7,7 +7,7 @@ document.getElementById('startbutton').addEventListener('click', function() {
     questionBox.style.display = 'block';
     startTimer();
 
-    loadQuestion();
+    setNextQuestion();
 });
 
 
@@ -33,9 +33,14 @@ function startTimer() {
 function endQuiz() {
     clearInterval(timerId);
     questionBox.style.display = 'none';
-    saveScore(timeLeft);
-    showScore(timeLeft);
+    const scoreDisplay = document.getElementById('score-display');
+    scoreDisplay.textContent = `All done!\nYour final score is ${timeLeft}`;
+    scoreDisplay.style.display = 'block'; 
+    console.log("Quiz ended!");
+    document.getElementById('submit-score').style.display = 'block';
 }
+
+
 
 function saveScore(score) {
     localStorage.setItem('quizScore', score);
@@ -46,3 +51,17 @@ function showScore(score) {
     scoreDisplay.textContent = `All done!\nYour final score is ${score}`;
     scoreDisplay.style.display = 'block'; 
 }
+
+document.getElementById('submit-initials').addEventListener('click', function() {
+    let initials = document.getElementById('initials').value;
+    if (initials === "" || initials.length != 2) {
+        alert("Has to be 2 initials");
+        return;
+    }
+
+    let highscores = JSON.parse(localStorage.getItem('highscores') || "[]");
+    highscores.push({ initials: initials, score: timeLeft });
+    highscores.sort((a, b) => b.score - a.score);
+    localStorage.setItem('highscores', JSON.stringify(highscores));
+    window.location.href = 'assets/highscores.html';
+});

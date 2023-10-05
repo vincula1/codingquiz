@@ -201,3 +201,4 @@ function selectAnswer(e) {
 options.forEach(button => {
     button.addEventListener('click', selectAnswer);
 });
+
