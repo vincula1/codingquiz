@@ -1,3 +1,6 @@
+/* On load, it runs a function. Retrieves and displays high scores,
+and event listeners for restart and clear button */
+
 window.onload = function() {
     let highscores = JSON.parse(localStorage.getItem('highscores') || "[]");
     let highscoreList = document.getElementById('highscore-list');

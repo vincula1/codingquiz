@@ -1,3 +1,5 @@
+/* Bank of questions to display in the quiz */
+
 const questionbank = [
     {
         question: 'Inside which element do you put JavaScript?',
@@ -141,6 +143,8 @@ const questionbank = [
 
 ];
 
+/* Question index declaration and variables stored for later use */
+
 let QuestionIndex = 0;
 const startButton = document.getElementById('startbutton');
 const questionBox = document.getElementById('question-box');
@@ -150,15 +154,21 @@ const options = Array.from(document.getElementsByClassName('option'));
 
 startButton.addEventListener('click', startQuiz);
 
+/*  Function to hide start button and displays question */
+
 function startQuiz() {
     startButton.style.display = 'none';
     questionBox.style.display = 'block';
     setNextQuestion();
 }
 
+/* Getting to next question function */
+
 function setNextQuestion() {
     showQuestion(questionbank[QuestionIndex]);
 }
+
+/* Display question associated with the answers */
 
 function showQuestion(question) {
     questionText.innerText = question.question;
@@ -167,6 +177,8 @@ function showQuestion(question) {
         options[index].dataset.correct = answer.correct;
     });
 }
+
+/* Displays gif according to right or wrong */
 
 function handleAnswer(isCorrect) {
     if (isCorrect) {
@@ -178,6 +190,9 @@ function handleAnswer(isCorrect) {
     resultGif.style.display = 'block';
 
 }
+
+/* Dictating weather there are more questions available or not and
+takes 10 seconds off on timer when selecting wrong answer */
 
 function selectAnswer(e) {
     const selectedButton = e.target;
@@ -197,6 +212,8 @@ function selectAnswer(e) {
         endQuiz();
     }
 }
+
+/* Listening for answer option selection */
 
 options.forEach(button => {
     button.addEventListener('click', selectAnswer);

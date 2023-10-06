@@ -1,3 +1,5 @@
+/* Hides and shows certain elements when the start button is clicked */
+
 document.getElementById('startbutton').addEventListener('click', function() {
     document.getElementById('question-box').style.display = 'flex';
     document.getElementById("hometitle").style.display = 'none';
@@ -10,7 +12,7 @@ document.getElementById('startbutton').addEventListener('click', function() {
     setNextQuestion();
 });
 
-
+/* Makes the timer work and ends the quiz if reaches 0 */
 
 let timeLeft = 50;
 let timerId;
@@ -29,6 +31,7 @@ function startTimer() {
     }, 1000);
 }
 
+/* Hides question box and displays final score */
 
 function endQuiz() {
     clearInterval(timerId);
@@ -40,17 +43,21 @@ function endQuiz() {
     document.getElementById('submit-score').style.display = 'block';
 }
 
-
+/* Saves the score in local storage */
 
 function saveScore(score) {
     localStorage.setItem('quizScore', score);
 }
+
+/* Function to display the score after */
 
 function showScore(score) {
     const scoreDisplay = document.getElementById('score-display');
     scoreDisplay.textContent = `All done!\nYour final score is ${score}`;
     scoreDisplay.style.display = 'block'; 
 }
+
+/* Function to submit the score, and validity with initials */
 
 document.getElementById('submit-initials').addEventListener('click', function() {
     let initials = document.getElementById('initials').value;
