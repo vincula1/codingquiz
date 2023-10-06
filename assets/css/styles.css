@@ -137,16 +137,49 @@ body {
     overflow: hidden;
 }
 
-#score-container {
+.center-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
 }
+
+#score-container {
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#submit-score {
+    display: none;
+}
+
 
 #score-display {
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#initials {
+    width: 100%;
+    max-width: 200px;
+    padding: 5px;
+    font-size: 18px;
+    margin: 10px auto 0;
+}
+
+#submit-initials {
+    padding: 10px 20px;
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 #highscore-list {
